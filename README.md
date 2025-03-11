@@ -18,8 +18,9 @@ To install project on a local machine run these commands:
 $ python3 -m venv .venv
 $ . .venv/bin/activate
 (venv) $ pip install --upgrade pip
-(venv) $ pip install -r requirements.txt // (venv) $ python -m pip install Django
-# (venv) $ flask --debug --app app run
+(venv) $ pip install -r requirements.txt
+# (venv) $ python -m pip install Django
+(venv) $ python manage.py runserver
 # ...работает сервер, ctrl + c для выхода
 (venv) $ deactivate
 ```
@@ -32,10 +33,13 @@ $ ./install.sh
 
 
 # Create mysite (to bootstrap a new Django project)
-(venv) $ cd djangotutorial
+(venv) $ mkdir djangotutorial
 (venv)$ django-admin startproject mysite djangotutorial
-(inside mystite)python manage.py runserver
-()python manage.py startapp polls
+(inside manage.py directory) python manage.py runserver
+(inside manage.py directory) python manage.py startapp polls
+$ python manage.py migrate
+$ python manage.py makemigrations polls
+$ python manage.py sqlmigrate polls 0001
 
 New files are:
 
@@ -53,6 +57,8 @@ New files are:
 
 - mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
 
+# Creating an admin user
+$ python manage.py createsuperuser
 
 # Run project
 ```
